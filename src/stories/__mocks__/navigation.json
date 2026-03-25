@@ -1,0 +1,8 @@
+{
+  "navItems": [
+    { "label": "Dashboard", "icon": "DashboardBrowsing", "href": "/", "active": true },
+    { "label": "Reports", "icon": "SchoolReportCard", "href": "/reports", "active": false },
+    { "label": "Assets", "icon": "Building01", "href": "/assets", "active": false },
+    { "label": "Settings", "icon": "Setting07", "href": "/settings", "active": false }
+  ]
+}

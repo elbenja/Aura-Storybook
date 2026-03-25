@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Badge } from "@/components/ui/badge";
+import { HugeiconsIcon, CheckmarkCircle02Icon } from "@/components/icons";
 
 const meta: Meta<typeof Badge> = {
   title: "Primitives/Badge",
@@ -39,6 +40,27 @@ export const AllVariants: Story = {
       <Badge variant="secondary">Secondary</Badge>
       <Badge variant="destructive">Destructive</Badge>
       <Badge variant="outline">Outline</Badge>
+    </div>
+  ),
+};
+
+export const WithIcon: Story = {
+  render: () => (
+    <Badge>
+      <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
+      Certified
+    </Badge>
+  ),
+};
+
+export const Certification: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-2">
+      <Badge variant="outline">GRESB</Badge>
+      <Badge variant="outline">CSRD</Badge>
+      <Badge variant="outline">LEED</Badge>
+      <Badge variant="outline">TNFD</Badge>
+      <Badge variant="outline">BREEAM</Badge>
     </div>
   ),
 };

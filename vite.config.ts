@@ -18,6 +18,9 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src")
     }
   },
+  optimizeDeps: {
+    include: ["@hugeicons/react", "@hugeicons/core-free-icons"],
+  },
   test: {
     projects: [{
       extends: true,

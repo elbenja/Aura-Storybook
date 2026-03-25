@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Button } from "@/components/ui/button";
+import { HugeiconsIcon, ArrowRight01Icon, Setting07Icon } from "@/components/icons";
 
 const meta: Meta<typeof Button> = {
   title: "Primitives/Button",
@@ -72,6 +73,33 @@ export const AllVariants: Story = {
       <Button variant="outline">Outline</Button>
       <Button variant="ghost">Ghost</Button>
       <Button variant="link">Link</Button>
+    </div>
+  ),
+};
+
+export const WithIcon: Story = {
+  render: () => (
+    <Button>
+      Next <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
+    </Button>
+  ),
+};
+
+export const IconOnly: Story = {
+  render: () => (
+    <Button size="icon">
+      <HugeiconsIcon icon={Setting07Icon} />
+    </Button>
+  ),
+};
+
+export const AllSizes: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-4">
+      <Button size="xs">Extra Small</Button>
+      <Button size="sm">Small</Button>
+      <Button size="default">Default</Button>
+      <Button size="lg">Large</Button>
     </div>
   ),
 };

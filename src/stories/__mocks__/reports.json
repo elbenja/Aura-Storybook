@@ -1,0 +1,20 @@
+{
+  "certifications": [
+    { "id": "gresb", "name": "GRESB", "fullName": "Real estate ESG", "color": "#2B8C3E" },
+    { "id": "csrd", "name": "CSRD", "fullName": "Health & Wellness Cert", "color": "#1E3A5F" },
+    { "id": "leed", "name": "LEED", "fullName": "Green building certification", "color": "#4A7C2E" },
+    { "id": "tnfd", "name": "TNFD", "fullName": "Nature-related Risk Reporting", "color": "#2C4D6E" },
+    { "id": "breeam", "name": "BREEAM", "fullName": "Building Research Establishment", "color": "#00735C" }
+  ],
+  "portfolioSummary": {
+    "properties": 730,
+    "reportCounts": { "CSRD": 115, "GRESB": 70, "TNFD": 47 }
+  },
+  "reports": [
+    { "id": 1, "type": "CSRD", "asset": "388 Greenwich St.", "location": "388 Greenwich St, New York, NY", "date": "Oct 25, 2025", "status": "In progress" },
+    { "id": 2, "type": "CSRD", "asset": "388 Greenwich St.", "location": "388 Greenwich St, New York, NY", "date": "Oct 25, 2025", "status": "Generated" },
+    { "id": 3, "type": "BREEAM", "asset": "One Vanderbilt", "location": "45 E 42nd St, New York, NY 10017", "date": "Oct 25, 2025", "status": "Generated" },
+    { "id": 4, "type": "GRESB", "asset": "Perch Harlem", "location": "542 West 153rd Street, Manhattan, NY", "date": "Oct 25, 2025", "status": "Generated" },
+    { "id": 5, "type": "GRESB", "asset": "The Visionaire", "location": "70 Little West Street, Battery Park City, New York, NY", "date": "Oct 25, 2025", "status": "Generated" }
+  ]
+}

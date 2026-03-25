@@ -8,10 +8,15 @@ const config: StorybookConfig = {
     "@storybook/addon-a11y",
     "@storybook/addon-docs",
     "@storybook/addon-onboarding",
+    "@storybook/addon-themes",
   ],
   framework: "@storybook/react-vite",
   typescript: {
     reactDocgen: "react-docgen-typescript",
+    reactDocgenTypescriptOptions: {
+      propFilter: (prop) =>
+        prop.parent ? !prop.parent.fileName.includes("node_modules") : true,
+    },
   },
 };
 
