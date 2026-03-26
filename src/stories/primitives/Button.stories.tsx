@@ -93,6 +93,22 @@ export const IconOnly: Story = {
   ),
 };
 
+export const IconPlacement: Story = {
+  render: () => (
+    <div className="flex flex-wrap items-center gap-4">
+      <Button variant="default">Button</Button>
+      <Button variant="default">
+        <HugeiconsIcon icon={Setting07Icon} size={16} />
+        Button
+      </Button>
+      <Button variant="default">
+        Button
+        <HugeiconsIcon icon={ArrowRight01Icon} size={16} />
+      </Button>
+    </div>
+  ),
+};
+
 export const AllSizes: Story = {
   render: () => (
     <div className="flex flex-wrap items-center gap-4">
