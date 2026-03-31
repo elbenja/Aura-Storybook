@@ -1,31 +1,34 @@
-import React, { useEffect } from "react";
+import React from "react";
 import type { Preview, StoryContext } from "@storybook/react-vite";
 import { useGlobals } from "storybook/preview-api";
 import { withThemeByClassName } from "@storybook/addon-themes";
 
 import "../src/index.css";
 
-const breakpointToViewport: Record<string, string> = {
-  desktop: "desktop",
-  tablet: "tablet",
-  mobile: "mobile",
+const breakpointWidths: Record<string, string> = {
+  desktop: "100%",
+  tablet: "768px",
+  mobile: "375px",
 };
 
 function ScreensBreakpointDecorator(
   Story: React.ComponentType,
   context: StoryContext
 ) {
-  const [globals, updateGlobals] = useGlobals();
+  const [globals] = useGlobals();
   const bp = globals.screensBreakpoint as string | undefined;
 
-  useEffect(() => {
-    if (!context.title?.startsWith("Screens/")) return;
-    if (bp && breakpointToViewport[bp]) {
-      updateGlobals({ viewport: breakpointToViewport[bp] });
-    }
-  }, [bp]);
+  if (!context.title?.startsWith("Screens/")) {
+    return <Story />;
+  }
 
-  return <Story />;
+  const width = (bp && breakpointWidths[bp]) ?? "100%";
+
+  return (
+    <div style={{ width, margin: "0 auto", minHeight: "100vh", overflow: "hidden" }}>
+      <Story />
+    </div>
+  );
 }
 
 const preview: Preview = {
@@ -61,10 +64,6 @@ const preview: Preview = {
         mobile: {
           name: "Mobile",
           styles: { width: "375px", height: "812px" },
-        },
-        tablet: {
-          name: "Tablet",
-          styles: { width: "768px", height: "1024px" },
         },
         desktop: {
           name: "Desktop",
