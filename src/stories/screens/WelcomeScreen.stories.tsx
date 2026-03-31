@@ -25,18 +25,18 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => (
-    <div className="flex h-[932px] w-[1200px] bg-[#f9f8f6]">
-      {/* Left — Hero Panel */}
-      <div className="shrink-0 p-4">
-        <HeroPanel className="h-[900px] w-[400px]" />
+    <div className="flex min-h-screen w-full bg-[#f9f8f6]">
+      {/* Left — Hero Panel (desktop only) */}
+      <div className="hidden lg:block shrink-0 p-4">
+        <HeroPanel className="h-full w-[400px]" />
       </div>
 
       {/* Right — Content Panel */}
       <div className="flex flex-1 flex-col bg-[#f9f8f6] min-w-0 overflow-hidden">
         <OnboardingHeader showSkip />
 
-        <div className="flex flex-1 items-start justify-center px-20 pt-16">
-          <div className="flex max-w-[600px] flex-col gap-8">
+        <div className="flex flex-1 items-start justify-center px-6 pt-10 tablet:px-12 tablet:pt-12 lg:px-20 lg:pt-16">
+          <div className="flex w-full max-w-[600px] flex-col gap-8">
             {/* Aura logo */}
             <AuraLogo size={55} className="text-foreground" />
 
