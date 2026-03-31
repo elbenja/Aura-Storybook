@@ -45,12 +45,14 @@ type Story = StoryObj;
 
 export const Default: Story = {
   render: () => (
-    <div className="flex h-[938px] w-[1400px] bg-background">
-      {/* Sidebar */}
-      <NatureAgentSidebar className="h-full" />
+    <div className="flex min-h-screen w-full bg-background">
+      {/* Sidebar (desktop only) */}
+      <div className="hidden lg:flex h-full">
+        <NatureAgentSidebar className="h-full" />
+      </div>
 
-      {/* Left — Chat panel */}
-      <div className="flex w-[624px] flex-col items-center justify-center px-5">
+      {/* Chat panel */}
+      <div className="flex w-full lg:w-[624px] flex-col items-center justify-center px-5">
         {/* Agent greeting */}
         <div className="flex flex-col items-center gap-5 mb-10">
           <AuraLogo size={72} className="text-foreground" />
@@ -65,7 +67,7 @@ export const Default: Story = {
         </div>
 
         {/* Topic cards grid */}
-        <div className="grid grid-cols-2 gap-2 w-[346px] mb-8">
+        <div className="grid grid-cols-1 tablet:grid-cols-2 gap-2 w-full tablet:w-[346px] mb-8">
           <TopicCard
             icon={FlashIcon}
             label="My nature & biodiversity insights"
@@ -79,13 +81,13 @@ export const Default: Story = {
         </div>
 
         {/* Chat Input */}
-        <div className="w-[468px]">
+        <div className="w-full lg:w-[468px]">
           <ChatInput />
         </div>
       </div>
 
-      {/* Right — Dashboard panel */}
-      <div className="flex flex-1 flex-col gap-4 p-2">
+      {/* Dashboard panel (desktop only) */}
+      <div className="hidden lg:flex flex-1 flex-col gap-4 p-2">
         <div className="flex flex-1 flex-col gap-4 rounded-2xl border bg-card p-3 overflow-y-auto">
           {/* Dashboard header */}
           <div className="flex flex-col gap-4 px-3 pt-3">
