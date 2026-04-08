@@ -1,22 +1,37 @@
-import * as React from "react"
-import { cva, type VariantProps } from "class-variance-authority"
-import { Toggle as TogglePrimitive } from "radix-ui"
+/* eslint-disable react-refresh/only-export-components */
+import * as React from "react";
+import { cva, type VariantProps } from "class-variance-authority";
+import { Toggle as TogglePrimitive } from "radix-ui";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 const toggleVariants = cva(
-  "inline-flex items-center justify-center gap-2 rounded-md text-sm font-medium whitespace-nowrap transition-[color,box-shadow] outline-none hover:bg-muted hover:text-muted-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 data-[state=on]:bg-accent data-[state=on]:text-accent-foreground dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+  [
+    "inline-flex items-center justify-center whitespace-nowrap rounded-[4px] border border-transparent",
+    "font-medium outline-none transition-[background-color,border-color,color,box-shadow] duration-150",
+    "focus-visible:ring-2 focus-visible:ring-ring/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+    "disabled:pointer-events-none disabled:opacity-50",
+    "[&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+    "data-[state=on]:shadow-none",
+  ].join(" "),
   {
     variants: {
       variant: {
-        default: "bg-transparent",
-        outline:
-          "border border-input bg-transparent shadow-xs hover:bg-accent hover:text-accent-foreground",
+        default: [
+          "bg-transparent text-foreground",
+          "hover:bg-secondary hover:text-muted-foreground",
+          "data-[state=on]:bg-secondary data-[state=on]:text-foreground",
+        ].join(" "),
+        outline: [
+          "border-border bg-transparent text-foreground shadow-none",
+          "hover:bg-secondary hover:text-muted-foreground",
+          "data-[state=on]:border-foreground data-[state=on]:bg-secondary data-[state=on]:text-foreground",
+        ].join(" "),
       },
       size: {
-        default: "h-9 min-w-9 px-2",
-        sm: "h-8 min-w-8 px-1.5",
-        lg: "h-10 min-w-10 px-2.5",
+        sm: "h-10 min-w-10 gap-2 px-3 text-sm leading-5",
+        default: "h-11 min-w-11 gap-2 px-3 text-base leading-6",
+        lg: "h-12 min-w-12 gap-2 px-5 text-lg leading-7",
       },
     },
     defaultVariants: {
@@ -24,7 +39,7 @@ const toggleVariants = cva(
       size: "default",
     },
   }
-)
+);
 
 function Toggle({
   className,
@@ -36,10 +51,10 @@ function Toggle({
   return (
     <TogglePrimitive.Root
       data-slot="toggle"
-      className={cn(toggleVariants({ variant, size, className }))}
+      className={cn(toggleVariants({ variant, size }), className)}
       {...props}
     />
-  )
+  );
 }
 
-export { Toggle, toggleVariants }
+export { Toggle, toggleVariants };
