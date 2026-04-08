@@ -13,4 +13,11 @@ describe("Logo Branding foundations story", () => {
     expect(markup).toContain("Background Treatments");
     expect(markup).toContain("recommended");
   });
+
+  it("uses the checked-in wordmark asset instead of a remote Figma URL", () => {
+    const markup = renderToStaticMarkup(<>{Overview.render?.({}, {} as never)}</>);
+
+    expect(markup).toContain("brand-wordmark.svg");
+    expect(markup).not.toContain("figma.com/api/mcp/asset");
+  });
 });

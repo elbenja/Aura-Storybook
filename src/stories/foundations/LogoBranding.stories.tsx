@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import brandIconSrc from "@/assets/brand-icon.svg";
-
-const wordmarkSrc = "https://www.figma.com/api/mcp/asset/d792d567-b98c-4bc4-8ce5-6c2922ee59a0";
+import wordmarkSrc from "@/assets/brand-wordmark.svg";
 
 const meta: Meta = {
   title: "Foundations/Logo Branding",
@@ -36,23 +35,23 @@ const backgroundTreatments = [
     name: "AuraGray/50",
     hex: "#f9f8f6",
     description: "Best used as a soft asset-display surface. A darker stage keeps the light marks readable.",
-    background: "#f9f8f6",
-    stage: "#4b5563",
+    background: "var(--gray-50)",
+    stage: "var(--gray-600)",
     recommended: false,
   },
   {
     name: "AuraGray/100",
     hex: "#eeece8",
     description: "A slightly denser neutral that still benefits from a darker inset for educational previews.",
-    background: "#eeece8",
-    stage: "#374151",
+    background: "var(--gray-100)",
+    stage: "var(--gray-700)",
     recommended: false,
   },
   {
     name: "AuraGray/800",
     hex: "#1f2937",
     description: "Recommended for direct placement when you want the light marks to feel crisp and intentional.",
-    background: "#1f2937",
+    background: "var(--gray-800)",
     stage: null,
     recommended: true,
   },
@@ -142,7 +141,7 @@ export const Overview: Story = {
                   {asset.dimensions}
                 </span>
               </div>
-              <SurfaceFrame background="#111827" className="min-h-52">
+              <SurfaceFrame background="var(--gray-900)" className="min-h-52">
                 {asset.preview}
               </SurfaceFrame>
             </article>
@@ -162,7 +161,10 @@ export const Overview: Story = {
             <div className="mt-5 grid gap-3 sm:grid-cols-2">
               {iconSizeExamples.map((size) => (
                 <div key={size} className="rounded-xl border border-border/60 bg-muted/30 p-4">
-                  <div className="flex min-h-24 items-center justify-center rounded-lg bg-[#111827]">
+                  <div
+                    className="flex min-h-24 items-center justify-center rounded-lg"
+                    style={{ backgroundColor: "var(--gray-900)" }}
+                  >
                     <BrandIcon size={size} />
                   </div>
                   <p className="mt-3 text-xs font-medium text-muted-foreground">{size}px</p>
@@ -177,7 +179,10 @@ export const Overview: Story = {
             <div className="mt-5 grid gap-3">
               {wordmarkSizeExamples.map((width) => (
                 <div key={width} className="rounded-xl border border-border/60 bg-muted/30 p-4">
-                  <div className="flex min-h-24 items-center justify-center rounded-lg bg-[#111827]">
+                  <div
+                    className="flex min-h-24 items-center justify-center rounded-lg"
+                    style={{ backgroundColor: "var(--gray-900)" }}
+                  >
                     <Wordmark width={width} />
                   </div>
                   <p className="mt-3 text-xs font-medium text-muted-foreground">{width}px wide</p>
@@ -197,7 +202,7 @@ export const Overview: Story = {
           <article className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
             <h4 className="text-base font-semibold">Icon Clear Space</h4>
             <p className="mt-1 text-sm text-muted-foreground">Treat the surrounding padding as minimum breathing room in dense layouts.</p>
-            <SurfaceFrame background="#eeece8" stage="#1f2937" className="mt-4">
+            <SurfaceFrame background="var(--gray-100)" stage="var(--gray-800)" className="mt-4">
               <div className="rounded-[28px] border border-dashed border-white/35 p-8">
                 <BrandIcon size={64} />
               </div>
@@ -207,7 +212,7 @@ export const Overview: Story = {
           <article className="rounded-2xl border border-border/70 bg-card p-5 shadow-sm">
             <h4 className="text-base font-semibold">Wordmark Clear Space</h4>
             <p className="mt-1 text-sm text-muted-foreground">Keep the name clear of adjacent copy, controls, and framing elements.</p>
-            <SurfaceFrame background="#f9f8f6" stage="#374151" className="mt-4">
+            <SurfaceFrame background="var(--gray-50)" stage="var(--gray-700)" className="mt-4">
               <div className="rounded-[28px] border border-dashed border-white/35 px-10 py-8">
                 <Wordmark width={160} />
               </div>
