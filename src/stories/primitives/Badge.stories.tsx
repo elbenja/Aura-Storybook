@@ -1,6 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import { Badge } from "@/components/ui/badge";
-import { HugeiconsIcon, CheckmarkCircle02Icon } from "@/components/icons";
+import {
+  ArrowRight01Icon,
+  CheckmarkCircle02Icon,
+  HugeiconsIcon,
+} from "@/components/icons";
 
 const meta: Meta<typeof Badge> = {
   title: "Primitives/Badge",
@@ -50,6 +54,60 @@ export const WithIcon: Story = {
       <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
       Certified
     </Badge>
+  ),
+};
+
+export const WithLeftIcon: Story = {
+  render: () => (
+    <Badge>
+      <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
+      Certified
+    </Badge>
+  ),
+};
+
+export const WithRightIcon: Story = {
+  render: () => (
+    <Badge variant="outline">
+      View report
+      <HugeiconsIcon icon={ArrowRight01Icon} size={12} />
+    </Badge>
+  ),
+};
+
+export const IconPositions: Story = {
+  render: () => (
+    <div className="flex flex-col items-start gap-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge>
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
+          Certified
+        </Badge>
+        <Badge variant="secondary">
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
+          Verified
+        </Badge>
+        <Badge variant="outline">
+          <HugeiconsIcon icon={CheckmarkCircle02Icon} size={12} />
+          Left Icon
+        </Badge>
+      </div>
+
+      <div className="flex flex-wrap items-center gap-2">
+        <Badge>
+          Explore
+          <HugeiconsIcon icon={ArrowRight01Icon} size={12} />
+        </Badge>
+        <Badge variant="secondary">
+          Next step
+          <HugeiconsIcon icon={ArrowRight01Icon} size={12} />
+        </Badge>
+        <Badge variant="outline">
+          Right Icon
+          <HugeiconsIcon icon={ArrowRight01Icon} size={12} />
+        </Badge>
+      </div>
+    </div>
   ),
 };
 
